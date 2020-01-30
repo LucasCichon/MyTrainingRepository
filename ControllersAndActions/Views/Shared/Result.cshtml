@@ -1,0 +1,18 @@
+﻿@model String
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device - width" />
+    <title>Kontrolery i Akcje</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+</head>
+<body class="m-1 p-1">
+    Dane modelu: @Model
+
+    <a class="btn btn-primary" asp-controller="Derived" asp-action="Headers">Dictionary Headers</a>
+    <a class="btn btn-primary" asp-controller="Derived" asp-action="Path">Path</a>
+</body>
+</html>

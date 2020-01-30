@@ -1,0 +1,16 @@
+[
+  {
+    "outputFileName": "wwwroot/CSS/bundle.css",
+    "inputFiles": [
+      "wwwroot/CSS/first.css",
+      "wwwroot/CSS/second.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/bundle.js",
+    "inputFiles": [
+      "wwwroot/js/third.js",
+      "wwwroot/js/fourth.js"
+    ]
+  }
+]

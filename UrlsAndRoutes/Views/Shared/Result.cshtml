@@ -1,0 +1,49 @@
+﻿@model UrlsAndRoutes.Models.Result
+
+@{ Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device-width" />
+    <title>Routing</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+</head>
+<body class="m-1 p-1">
+    <table class="table table-bordered table-stripped table-sm">
+        <tr><th>Kontroller:</th><td>@Model.Controller</td></tr>
+        <tr><th>Akcja:</th><td>@Model.Action</td></tr>
+        @foreach (string key in Model.Data.Keys)
+        {
+            <tr><th>@key :</th><td>@Model.Data[key]</td></tr>
+        }
+    </table>
+
+    <a asp-route-legacyurl="/articles/Windows_3.1_Overview.html" class="btn btn-primary">
+        To jest wychodzący adres URL
+    </a>
+    <p>
+        URL: @Url.Action(null, null, new { legacyurl = "/articles/Windows_3.1_Overview.html" })
+    </p>
+    <a asp-route-legacyurl="podstawowy" class="btn btn-primary">
+        To jest wychodzący adres URL
+    </a>
+    <p>
+        URL: @Url.Action("Home", "Index", new { legacyurl = "podstawowy" })
+    </p>
+
+    @*<p>Mój adres URL to: @Url.Action("CustomVariable","Home",new { id = 100 }) </p>*@
+
+    @*<a class="btn btn-primary" asp-controller="Home" asp-action="CustomVariable">To jest wychodząy adres URL</a>
+        <a class="btn btn-primary" asp-route="out">To jest wychodzący adres URL</a>*@
+    @*<a class="btn btn-primary" asp-controller="Home" asp-action="Index" asp-route-id="Witaj"
+        asp-protocol="https" asp-host="serwer.domena.pl"
+        asp-fragment="mójFragment">To jest wychodzący adres URL</a>*@
+    @*<a class="btn btn-primary" asp-controller="Home" asp-action="Index" asp-route-id="Witaj">To jest wychodzący adres URL</a>*@
+    @*<a class="btn btn-primary" asp-controller="Customer" asp-action="List" asp-route-id="pn">To jest wycodzący adres URL</a>*@
+    @*<a class="btn btn-primary" asp-controller="Customer" asp-action="List">To jest wychodzący adres URL</a>*@
+    @*<a class="btn btn-primary" asp-controller="Admin" asp-action="Index">To jest wychodzący adres URL</a>*@
+    @*<a class="btn btn-primary" asp-action="CustomVariable">To jest wychodzący adres URL</a>*@
+    @*<a class="btn btn-primary" href="/Home/CustomVariable">To jest wychodzący adres URL</a>*@
+</body>
+</html>

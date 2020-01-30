@@ -1,0 +1,20 @@
+﻿@model Dictionary<string,string>
+
+@{ Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+    <title>Wynik</title>
+</head>
+<body class="p-1">
+    <table class="table table-stripped table-condensed table-bordered">
+        @foreach(var kvp in Model)
+        {
+            <tr><th>@kvp.Key</th><th class="text-info">@kvp.Value</th></tr>
+        }
+    </table>
+</body>
+</html>

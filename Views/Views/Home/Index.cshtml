@@ -1,0 +1,26 @@
+﻿@model string[]
+
+@{ Layout = "_Layout";}
+
+@section Header{ 
+<div class="bg-success">
+    @foreach(String str in new[] { "Główna", "Lista", "Edycja" })
+    {
+        <a class="btn btn-sm btn-primary" asp-action="str/">@str</a>
+    }
+</div>
+}
+
+@section Body{ 
+    To jest lista nazw owoców:
+    @foreach(string name in Model)
+    {
+        <span><b>@name</b></span>
+    }
+}
+
+@section Footer{ 
+<div class="bg-success">
+    To jest stopka.
+</div>
+}

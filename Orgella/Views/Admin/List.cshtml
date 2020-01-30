@@ -1,0 +1,24 @@
+﻿@model AdminListViewModel
+
+@{ Layout = "_Layout";}
+
+
+<table>
+    <thead>
+        <tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model.Admins)
+        {
+        <tr>
+            <th>@a.AdminID</th>
+            <th>@a.FirstName</th>
+            <th>@a.LastName</th>
+            <th>@a.Email</th>
+            <th>@a.PhoneNumber.ToString()</th>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div admin-page-model="Model.PagingInfo" admin-page-action="List"></div>

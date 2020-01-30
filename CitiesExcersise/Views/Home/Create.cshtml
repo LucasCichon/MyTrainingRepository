@@ -1,0 +1,33 @@
+﻿@model City
+@addTagHelper CitiesExcersise.Infrastructure.TagHelpers.SelectOptionTagHelper, CitiesExcersise
+
+@{ Layout = "_Layout";}
+
+    <form method="post" asp-controller="Home" asp-action="Create" asp-antiforgery="true">
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Country"></label>
+            <select class="form-control" model-for="Country">
+                <option disabled selected value="">Wybierz kraj</option>
+            </select>
+            @*<input class="form-control" asp-for="Country"/>*@
+            @*<select class="form-control" asp-for="Country" asp-items="@new SelectList(Enum.GetNames(typeof(CountryNames)))">
+                <option disabled selected value="">Wybierz Kraj a Country</option>
+            </select>*@
+        </div>
+        <div class="form-group">
+            <label asp-for="Population"></label>
+            <input class="form-control" asp-for="Population" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Notes"></label>
+            <textarea class="form-control" asp-for="Notes"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Dodaj</button>
+        <a class="btn btn-primary" href="/Home/Index">Anuluj</a>
+        
+    </form>

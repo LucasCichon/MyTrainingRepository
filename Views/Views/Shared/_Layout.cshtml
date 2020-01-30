@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+</head>
+<body class="m-1 p-1">
+    @RenderSection("Header")
+    <div class="bg-info">
+        To jest część układu
+    </div>
+
+    @RenderSection("Body")
+
+    <div class="bg-info">
+        To jest część układu
+    </div>
+
+    @if (IsSectionDefined("Footer"))
+    {
+    @RenderSection("Footer")
+    }
+    else
+    {
+        <h4>To jest domyślna stopka</h4>
+    }
+
+    @RenderSection("scripts",false)
+
+
+    <div class="bg-info">
+        To jest część układu
+    </div>
+</body>
+</html>

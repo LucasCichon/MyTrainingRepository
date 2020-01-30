@@ -1,0 +1,23 @@
+﻿@model IEnumerable<City>
+
+<table class="table table-sm table-bordered">
+    <tr>
+        <td>Największe miasto:</td>
+        <td>
+            @Model.OrderByDescending(c => c.Population).First().Name
+        </td>
+    </tr>
+</table>
+<a class="btn btn-sm btn-info" asp-controller="City" asp-action="Create">
+    Dodaj Miasto
+</a>
+<table class="table table-sm table-bordered">
+    @foreach(City c in Model)
+    {
+        <tr>
+            <td>@c.Name</td>
+            <td>@c.Country</td>
+            <td>@c.Population</td>
+        </tr>
+    }
+</table>

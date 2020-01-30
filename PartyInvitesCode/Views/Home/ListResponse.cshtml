@@ -1,0 +1,34 @@
+﻿@model IEnumerable<PartyInvitesCode.Models.GuestResponse>
+
+@{ Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device-width" />
+    <title>Lista Gości</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+</head>
+<body>
+    <h1>Oto lista gośći</h1>
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Imię i nazwisko</th>
+                <th>Adres e-mail</th>
+                <th>Telefon</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(PartyInvitesCode.Models.GuestResponse r in Model)
+            {
+                <tr>
+                    <th>@r.Name</th>
+                    <th>@r.Email</th>
+                    <th>@r.Phone</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

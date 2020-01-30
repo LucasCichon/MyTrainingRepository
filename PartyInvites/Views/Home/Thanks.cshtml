@@ -1,0 +1,31 @@
+﻿@model PartyInvites.Models.GuestResponse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device-width"/>
+    <title>Dziekujemy</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body class="text-center">
+    <p>
+        <h1>Dziękujemy, @Model.Name!</h1>
+        @if (Model.willAttend == true)
+        {
+            @:Cieszymy się, że przyjdziesz do nas. Napoje są już w lodówce!
+        }
+        else
+        {
+            @:Przykro nam, że nie możesz się zjawić, ale dziękujemy za informację.
+        }
+    </p>
+    <!--<a class="btn btn-primary" asp-action="RsvpForm">RSVP</a>
+     <a class="btn btn-primary" asp-action="ListResponses" >Lista Gości</a>-->
+    <p>Kliknij <a class="nav-link" asp-action="ListResponses">tutaj</a>, aby wyświetlić listę gośći.</p>
+    
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Product>
+
+@{ Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="widh = device-width" />
+    <title>Dependency Injection</title>
+    <link rel="stylesheet" href="~/twitter-bootstrap/css/bootstrap.css" />
+</head>
+<body class="m-1 p-1">
+        @if(ViewData.Count >0)
+        {
+            <table class="table table-bordered  table-striped  table-sm">
+                @foreach(var kvp in ViewData)
+                {
+                    <tr><td>@kvp.Key</td><td>@kvp.Value</td></tr>
+                }
+            </table>
+        }
+        <table class="table table-stripped table-bordered table-sm">
+            <thead>
+                <tr><td>Produkt</td><td>Cena</td></tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                {
+                    <tr><td colspan="3" class="text-center">Brak danych w modelu</td></tr>
+                }
+                else
+                {
+                    @foreach (Product p in Model)
+                    {
+                        <tr>
+                            <td>@p.Name</td>
+                            <td>@string.Format("{0:C2}", p.Price)</td>
+                        </tr>
+
+                    }
+                }
+            </tbody>
+        </table>
+</body>
+</html>

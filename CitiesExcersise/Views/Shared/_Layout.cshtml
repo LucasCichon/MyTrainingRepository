@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
+
+</head>
+<body class="m-1 p-1">
+    <cache expires-sliding="@TimeSpan.FromSeconds(5)" vary-by="@ViewContext.RouteData.Values["action"]">
+
+    @await Component.InvokeAsync("Time")
+    </cache>
+    <div>
+        <div>@RenderBody()</div>
+    </div>
+</body>
+</html>

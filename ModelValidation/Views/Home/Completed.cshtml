@@ -1,0 +1,10 @@
+﻿@model Apointment
+
+@{ Layout = "_Layout";}
+
+<div class="bg-success m-1 p-1 text-white"><h2>Potwierdzenie wizyty</h2></div>
+<table class="table table-bordered">
+    <tr><th>Imię:</th><td>@Model.ClientName</td></tr>
+    <tr><th>Data wizyty:</th><td>@Model.Date.ToString("d")</td></tr>
+</table>
+<a asp-controller="Home" asp-action="Index" class="btn btn-success">Utwórz kolejcą rezerwację</a>

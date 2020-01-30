@@ -1,0 +1,23 @@
+﻿@model Person[]
+
+@{ Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device - width" />
+    <title>Obszary</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+</head>
+<body class="m-1 p-1">
+    <table class="table table-bordered table-striped table-sm">
+        <tr><th>Imię</th><th>Miasto</th></tr>
+        @foreach (Person p in Model)
+        {
+            <tr><th>@p.Name</th><th>@p.City</th></tr>
+        }
+    </table>
+    <a asp-action="Index" asp-controller="Home">Łącze</a>
+    <a asp-action="Index" asp-controller="Home" asp-route-area="">Łącze</a>
+</body>
+</html>

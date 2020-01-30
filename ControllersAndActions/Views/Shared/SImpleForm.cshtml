@@ -1,0 +1,23 @@
+﻿@{ Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device - width" />
+    <title>Kontrolery i Akcje</title>
+    <link rel="stylesheet" href="@Url.Action("Index","Example")" />
+</head>
+<body class="m-1 p-1">
+    <form method="post" asp-action="ReceiveForm">
+        <div class="form-group">
+            <label for="name">Imię:</label>
+            <input class="form-control" name="name" />
+        </div>
+        <div class="form-group">
+            <label for="name">Miasto:</label>
+            <input class="form-control" name="city" />
+        </div>
+        <button class="btn btn-primary center-block" type="submit">Wyślij</button> <!--przycisk submit znajduje sie pomiędzy znacznikami form i  wykonuje rządanie POST ReveiceForm -->
+    </form>
+</body>
+</html>

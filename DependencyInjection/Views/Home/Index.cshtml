@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Product>
+
+@{ Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device - width" />
+    <tite>Wstrzykiwanie zależności</tite>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+</head>
+<body class="m-1 p-1">
+    @if (ViewData.Count > 0)
+    {
+        <table class="table table-bordered table-striped table-sm">
+            @foreach(var kvp in ViewData)
+            {
+                <tr><td>@kvp.Key</td><td>@kvp.Value</td></tr>
+            }
+        </table>
+    }
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr>
+                <td>Produkt</td>
+                <td>Cena</td>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model == null)
+            {
+                <tr><td colspan="3" class="text-center">Brak danych modelu</td></tr>
+            }
+            else
+            {
+                @foreach(var p in Model)
+                {
+                    <tr>
+                        <td>@p.Name</td>
+                        <td>@string.Format("{0:C2}", p.Price)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</body>
+</html>

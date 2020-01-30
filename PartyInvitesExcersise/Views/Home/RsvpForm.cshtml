@@ -1,0 +1,38 @@
+﻿@model PartyInvitesExcersise.Models.GuestResponse;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>RSVP</title>
+</head>
+<body>
+    <form asp-action="RsvpForm" method="post">
+        <p>
+            <label asp-for="Name">Imię i Nazwisko:</label>
+            <input asp-for="Name" />
+        </p>
+        <p>
+            <label asp-for="Email">Adres e-mail:</label>
+            <input asp-for="Email" />
+        </p>
+        <p>
+            <label asp-for="Phone">nr. telefonu:</label>
+            <input asp-for="Phone" />
+        </p>
+        <p>
+            <label>Czy przyjdziesz na przyjęcie?</label>
+            <select asp-for="WillAttend">
+                <option value="">Wybierz opcję</option>
+                <option value="true">Tak, przyjdę</option>
+                <option value="false">Nie, nie przyjdę</option>
+            </select>
+        </p>
+        <button type="submit">Wyślij RSVP</button>
+    </form>
+</body>
+</html>

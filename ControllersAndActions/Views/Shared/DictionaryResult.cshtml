@@ -1,0 +1,21 @@
+﻿@model Dictionary<string, string>
+
+@{ Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device - width" />
+    <title>Kontrolery i Akcje</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+</head>
+<body class="m-1 p-1">
+    <table class="table table-bordered table-striped table-sm">
+        <tr><th>Klucz</th><th>Wartość</th></tr>
+        @foreach (string key in Model.Keys)
+        {
+            <tr><th>@key</th><th>@Model[key]</th></tr>
+        }
+    </table>
+</body>
+</html>

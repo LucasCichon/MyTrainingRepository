@@ -1,0 +1,15 @@
+﻿@model IEnumerable<City>
+
+<table class="table table-sm table-bordered text-white">
+    @foreach(City c in Model)
+    {
+        <tr>
+            <td>@c.Name</td>
+            <td>@c.Population.ToString("#,###")</td>
+        </tr>
+    }
+    <tr>
+        <td>Razem:</td>
+        <td>@Model.Sum(p => p.Population).ToString("#,###")</td>
+    </tr>
+</table>

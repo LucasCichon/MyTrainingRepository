@@ -1,0 +1,29 @@
+﻿@model WorkingWithVisualStudio.Models.Product
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device - width" />
+    <title>Praca z Visual Studio</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" />
+</head>
+<body class="p-2">
+    <h3>Dodawanie produktu</h3>
+    <form  asp-action="AddProduct" method="post">
+        <div class="form-group">
+            <label asp-for="Name">Nazwa:</label>
+            <input asp-for="Name" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price">Cena:</label>
+            <input asp-for="Price" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Dodaj</button>
+        <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+    </form>
+</body>
+</html>
+

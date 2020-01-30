@@ -1,0 +1,19 @@
+﻿@model Product
+
+@{ 
+    ViewData["Title"] = "Tworzenie produktu";
+    Layout = "_Layout";
+}
+
+<form method="post" asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Name">Nazwa:</label>
+        <input class="form-control" asp-for="Name" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price">Cena:</label>
+        <input class="form-control" asp-for="Price"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj</button>
+    <a asp-action="Index" class="btn btn-danger">Anuluj</a>
+</form>

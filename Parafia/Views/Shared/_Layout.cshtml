@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Category>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" />
+</head>
+<body class="m-1 p-1">
+    <div>
+        @await Component.InvokeAsync("NavigationMenu")
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

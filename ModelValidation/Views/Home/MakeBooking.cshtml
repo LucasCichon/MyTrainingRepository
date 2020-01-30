@@ -1,0 +1,40 @@
+﻿@model Apointment
+
+@{ Layout = "_Layout";}
+
+@section scripts{
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+@*@section scripts{
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input.input-validation-error")
+                .closest(".form-group").addClass("has-danger");
+        });
+    </script>
+}*@
+
+<div class="bg-primary m-1 p-1"><h2>Rezerwacja wizyty</h2></div>
+<form method="post" asp-action="MakeBooking">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="ClientName">Imię:</label>
+        <div><span asp-validation-for="ClientName" class="text-danger"></span></div>
+        <input asp-for="ClientName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Date">Data</label>
+        <div><span asp-validation-for="Date" class="text-danger"></span></div>
+        <input asp-for="Date" class="form-control" type="text" asp-format="{0:d}" />
+    </div>
+    <span asp-validation-for="TermsAccepted" class="text-danger"></span>
+    <div class="custom-radio form-group">
+        <input asp-for="TermsAccepted" />
+        <label asp-for="TermsAccepted">Akceptuję warunki</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Utwórz rezerwację</button>
+</form>

@@ -1,0 +1,13 @@
+﻿@model Person
+
+@{ Layout = "_Layout";}
+
+<div class="bg-primary m-1 p-1 text-white"><h2>Osoba</h2></div>
+<table class="table table-bordered table-sm table-striped">
+    <tr><th>ID:</th><td>@Model.PersonId</td></tr>
+    <tr><th>Imię:</th><td>@Model.FirstName</td></tr>
+    <tr><th>Nazwisko:</th><td>@Model.LastName</td></tr>
+    <tr><th>Rola:</th><td>@Model.Role</td></tr>
+    @*<tr><th>Miasto:</th><td>@Model.HomeAdress.City</td></tr>
+    <tr><th>Kraj:</th><td>@Model.HomeAdress.Country</td></tr>*@
+</table>

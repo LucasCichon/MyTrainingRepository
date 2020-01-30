@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+</head>
+<body class="m-1 p-1">
+    <div class="bg-primary m-1 p-1">
+        <div class="row text-white">
+            <div class="col-7"><h1>Produkty</h1></div>
+            <div class="col-5">
+                <div class="bg-primary m-1 p-1">@await Component.InvokeAsync("ComboComponent")</div>
+            </div>
+        </div>
+    </div>
+    <div class="m-1 p-1">
+        @RenderBody()
+    </div>
+    
+</body>
+</html>

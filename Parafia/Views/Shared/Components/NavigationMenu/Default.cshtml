@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Category>
+
+
+
+    <span style="display: inline;">
+        @foreach (Category c in Model)
+        {
+            <a asp-action="@c.Name"><h3>@c.Name</h3></a>
+        }
+    </span>

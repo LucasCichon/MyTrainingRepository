@@ -1,0 +1,23 @@
+﻿@model IEnumerable<City>
+@{ Layout = "_Layout";}
+
+<table class="table table-sm table-bordered">
+    <thead class="bg-primary text-white">
+        <tr>
+            <th>Miasto</th>
+            <th>Kraj</th>
+            <th class="text-right">Populacja</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var city in Model)
+        {
+            <tr>
+                <td wrap>@city.Name</td>
+                <td wrap>@city.Country</td>
+                <td class="text-right">@city.Population?.ToString("#,###")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Home/Create" class="btn btn-primary">Dodaj miasto</a>

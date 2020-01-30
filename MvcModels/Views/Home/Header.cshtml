@@ -1,0 +1,10 @@
+﻿@model HeaderModel
+
+@{ Layout = "_Layout";
+    ViewBag.Title = "Nagłówki";}
+
+<table class="table table-sm table-bordered table-striped">
+    <tr><th>Accept:</th><td>@Model.Accept</td></tr>
+    <tr><th>Accept-Language:</th><td>@Model.AcceptLanguage</td></tr>
+    <tr><th>Accept-Encoding:</th><td>@Model.AcceptEncoding</td></tr>
+</table>

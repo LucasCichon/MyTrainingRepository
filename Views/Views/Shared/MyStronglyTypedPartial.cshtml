@@ -1,0 +1,11 @@
+﻿@model IEnumerable<string>
+
+<div class="bg-info">
+    To jest komunikat z widoku częściowego
+    <ul>
+        @foreach(string s in Model)
+        {
+            <li>@s</li>
+        }
+    </ul>
+</div>
