@@ -5,14 +5,39 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Home\" />
-    <Folder Include="wwwroot\" />
+    <Compile Remove="Views\Home\**" />
+    <Content Remove="Views\Home\**" />
+    <EmbeddedResource Remove="Views\Home\**" />
+    <None Remove="Views\Home\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\twitter-bootstrap\css\bootstrap-grid.css" />
+    <None Include="wwwroot\lib\twitter-bootstrap\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\twitter-bootstrap\css\bootstrap-grid.min.css" />
+    <None Include="wwwroot\lib\twitter-bootstrap\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\twitter-bootstrap\css\bootstrap-reboot.css" />
+    <None Include="wwwroot\lib\twitter-bootstrap\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\twitter-bootstrap\css\bootstrap-reboot.min.css" />
+    <None Include="wwwroot\lib\twitter-bootstrap\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\twitter-bootstrap\css\bootstrap.css" />
+    <None Include="wwwroot\lib\twitter-bootstrap\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\twitter-bootstrap\css\bootstrap.min.css" />
+    <None Include="wwwroot\lib\twitter-bootstrap\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\twitter-bootstrap\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\twitter-bootstrap\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\twitter-bootstrap\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\twitter-bootstrap\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\twitter-bootstrap\js\bootstrap.js" />
+    <None Include="wwwroot\lib\twitter-bootstrap\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\twitter-bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\twitter-bootstrap\js\bootstrap.min.js.map" />
   </ItemGroup>
 
 </Project>
