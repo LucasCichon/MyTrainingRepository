@@ -4,10 +4,19 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Orgella</title>
+    <link rel="stylesheet" asp-href-include="lib/twitter-bootstrap/css/**/*.css" />
 </head>
 <body>
-    <div>
+    <div class="navbar bg-orange"  role="navigation">
+        <a class="navbar-brand text-white" href="#"><h2>Orgella</h2></a>
+    </div>
+    <div class="row m-1 p-1">
+        <div id="categories" class="col-3">
+            Później tutaj coś ogarniemy
+        </div>
+        <div class="col-9">
         @RenderBody()
+        </div>
     </div>
 </body>
 </html>
