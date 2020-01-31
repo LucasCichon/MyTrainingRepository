@@ -23,6 +23,11 @@ namespace Orgella.Infrastructure
         public PagingInfo PageModel { get; set; }
         public string PageAction { get; set; }
 
+        public bool PageClassEnabled { get; set; } = false;
+        public string PageClass { get; set; }
+        public string PageClassNormal { get; set; }
+        public string PageClassSelected { get; set; }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             //Definiuje kontrakt dla pomocnika na tworzenie adresów URL dla ASP.NET MVC w aplikacji.
@@ -34,7 +39,12 @@ namespace Orgella.Infrastructure
                 //tagowi href pszypisujemy nazwę akcji z widoku (u nas List) oraz przekazujemy jej parametr(metoda List przyjmuje parametr int do określenia strony)
                 tag.Attributes["href"] = urlHelper.Action(PageAction, // metodzie action przekazujemy 2 parametry. nazwę akcji do wykonania oraz obiekt
                     new { productPage = i });
-                //
+                if (PageClassEnabled)
+                {
+                    tag.AddCssClass(PageClass);
+                    tag.AddCssClass(i == PageModel.CurentPage ? PageClassSelected : PageClassNormal);
+                }
+                
                 tag.InnerHtml.Append(i.ToString());
                 result.InnerHtml.AppendHtml(tag);
             }
