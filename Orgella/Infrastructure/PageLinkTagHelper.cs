@@ -23,6 +23,11 @@ namespace Orgella.Infrastructure
         public PagingInfo PageModel { get; set; }
         public string PageAction { get; set; }
 
+        //tworzymy dziennik przechowujący dane o routingu
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; }
+            = new Dictionary<string, object>();
+
         public bool PageClassEnabled { get; set; } = false;
         public string PageClass { get; set; }
         public string PageClassNormal { get; set; }
@@ -36,9 +41,10 @@ namespace Orgella.Infrastructure
             for(int i=1; i<=PageModel.TotalPages(); i++)
             {
                 TagBuilder tag = new TagBuilder("a");
+                PageUrlValues["productPage"] = i; // bierzemy wartość  z dziennika który przechowuje dane o routingu
                 //tagowi href pszypisujemy nazwę akcji z widoku (u nas List) oraz przekazujemy jej parametr(metoda List przyjmuje parametr int do określenia strony)
-                tag.Attributes["href"] = urlHelper.Action(PageAction, // metodzie action przekazujemy 2 parametry. nazwę akcji do wykonania oraz obiekt
-                    new { productPage = i });
+                tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues); // metodzie action przekazujemy 2 parametry. nazwę akcji do wykonania oraz obiekt
+                   
                 if (PageClassEnabled)
                 {
                     tag.AddCssClass(PageClass);

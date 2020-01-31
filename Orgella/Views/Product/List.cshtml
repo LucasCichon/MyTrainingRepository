@@ -6,20 +6,12 @@
 
 @foreach(var p in Model.Products)
 {
-    <div class="card card-outline-primary m-1 p-1">
-        <div class="bg-light p-1">
-            <h4>
-                @p.Name
-                <span class="badge badge-pill badge-secondary" style="float:right">
-                    <small >@p.Price.ToString("c")</small>
-                </span> 
-            </h4>
-        </div>
-        <div class="card-text p-1">@p.Description</div>
-    </div>
+    @Html.Partial("ProductSummary", p);
 }
 <div page-model="@Model.PagingInfo" page-action="List" page-class-enabled="true"
      page-class="btn btn-orange" page-class-normal="btn-outline-dark"
-     page-class-selected="btn-secondary btn-outline-secondary text-white" class="btn-group pull-right m-1 " ></div>
+     page-class-selected="btn-secondary btn-outline-secondary text-white" 
+     page-url-category ="@Model.CurrentCategory"  class="btn-group pull-right m-1 " ></div>
 
 
+@*page-url-category   To jest bardzo ważne - to używamy w atybucie pomocniczym znacznika PageLinkTagHelper*@

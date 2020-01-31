@@ -37,9 +37,21 @@ namespace Orgella
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "pagination",
-                    template: "Produkty/Strona{productPage}",
-                    defaults: new { controller = "Product", action = "List" });
+                    name: null,
+                    template: "{category}/Strona{productPage:int}",
+                    defaults: new { controller = "Product", action = "List"});
+                routes.MapRoute(
+                    name: null,
+                    template: "Strona{productPage:int}",
+                    defaults: new { controller = "Product", action = "List", productPage = 1 });
+                routes.MapRoute(
+                    name: null,
+                    template: "{category}",
+                    defaults: new { controller = "Product", action = "List", productPage = 1 });
+                routes.MapRoute(
+                    name: null,
+                    template: "",
+                    defaults: new { controller = "Product", action = "List", productPage = 1 });
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Product}/{action=List}/{id?}");

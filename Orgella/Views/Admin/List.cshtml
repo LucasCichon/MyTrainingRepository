@@ -1,24 +1,40 @@
 ﻿@model AdminListViewModel
 
-@{ Layout = "_Layout";}
+@{ Layout = null;}
 
+<!DOCTYPE html>
 
-<table>
-    <thead>
-        <tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th></tr>
-    </thead>
-    <tbody>
-        @foreach (var a in Model.Admins)
-        {
-        <tr>
-            <th>@a.AdminID</th>
-            <th>@a.FirstName</th>
-            <th>@a.LastName</th>
-            <th>@a.Email</th>
-            <th>@a.PhoneNumber.ToString()</th>
-        </tr>
-        }
-    </tbody>
-</table>
-
-<div admin-page-model="Model.PagingInfo" admin-page-action="List"></div>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Orgella</title>
+    <link rel="stylesheet" asp-href-include="lib/twitter-bootstrap/css/**/*.css" />
+</head>
+<body>
+    <div class="navbar bg-orange" role="navigation">
+        <a class="navbar-brand text-white" href="#"><h2>Orgella</h2></a>
+    </div>
+    <div class="row m-1 p-1">
+        <div class="col-12">
+            <table>
+                <thead>
+                    <tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th></tr>
+                </thead>
+                <tbody>
+                    @foreach (var a in Model.Admins)
+                    {
+                        <tr>
+                            <td>@a.AdminID</td>
+                            <td>@a.FirstName</td>
+                            <td>@a.LastName</td>
+                            <td>@a.Email</td>
+                            <td>@a.PhoneNumber</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div admin-page-model="Model.PagingInfo" admin-page-action="List"></div>
+        </div>
+    </div>
+</body>
+</html>

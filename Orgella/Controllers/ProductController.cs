@@ -18,10 +18,11 @@ namespace Orgella.Controllers
         public ProductController(IProductRepository repo) => repository = repo;
 
         // obiekt ProductsListViewModel przyjmuje wartośći IEnumerabel<Product> i Paging info
-        public ViewResult List(int productPage = 1) => View(new ProductListViewModel() 
+        public ViewResult List(string category, int productPage = 1) => View(new ProductListViewModel() 
         {
             Products = repository.Products
             .OrderBy(p => p.ProductID)
+            .Where(c => category==null || c.Category == category)
             .Skip((productPage - 1) * PageSize)
             .Take(PageSize),
             PagingInfo = new PagingInfo
@@ -29,7 +30,9 @@ namespace Orgella.Controllers
                 CurentPage = productPage,
                 ItemsPerPage = PageSize,
                 TotalItems = repository.Products.Count()
-            }
+            },
+            CurrentCategory = category
+
         });
             
     }
