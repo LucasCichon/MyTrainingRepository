@@ -1,0 +1,24 @@
+﻿.btn-orange {
+    color: #fff;
+    background-color: #fd7e14 !important;
+    border-color: #FC601C;
+}
+
+    .btn-orange:hover {
+        color: #fff;
+        background-color: #fd7e14 !important;
+        border-color: #FC601C;
+    }
+
+.bg-orange {
+    background-color: #FC601C !important;
+}
+
+.badge-orange {
+    color: #fff;
+    background-color: #FC601C !important;
+}
+.floated{
+    float:left;
+   
+}

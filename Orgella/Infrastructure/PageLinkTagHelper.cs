@@ -24,6 +24,7 @@ namespace Orgella.Infrastructure
         public string PageAction { get; set; }
 
         //tworzymy dziennik przechowujący dane o routingu
+        //atrybuty pomocnicze znacznikó mają funkcję pozwalającą, aby wszystkie właściwości o takim samym prefiksie były otrzymywane w pojedynczej kolekcji
         [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
         public Dictionary<string, object> PageUrlValues { get; set; }
             = new Dictionary<string, object>();
@@ -37,11 +38,13 @@ namespace Orgella.Infrastructure
         {
             //Definiuje kontrakt dla pomocnika na tworzenie adresów URL dla ASP.NET MVC w aplikacji.
             IUrlHelper urlHelper = urlHelperFactory.GetUrlHelper(ViewContext); //GetUrlHelper - zwraca żądania związane z kontextem
-            TagBuilder result  = new TagBuilder("div");
+            //     Contains methods and properties that are used to create HTML elements. This class
+            //     is often used to write HTML helpers and tag helpers.
+            TagBuilder result  = new TagBuilder("div"); // tworzymy znacznik div
             for(int i=1; i<=PageModel.TotalPages(); i++)
             {
                 TagBuilder tag = new TagBuilder("a");
-                PageUrlValues["productPage"] = i; // bierzemy wartość  z dziennika który przechowuje dane o routingu
+                PageUrlValues["productPage"] = i; 
                 //tagowi href pszypisujemy nazwę akcji z widoku (u nas List) oraz przekazujemy jej parametr(metoda List przyjmuje parametr int do określenia strony)
                 tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues); // metodzie action przekazujemy 2 parametry. nazwę akcji do wykonania oraz obiekt
                    
@@ -51,8 +54,8 @@ namespace Orgella.Infrastructure
                     tag.AddCssClass(i == PageModel.CurentPage ? PageClassSelected : PageClassNormal);
                 }
                 
-                tag.InnerHtml.Append(i.ToString());
-                result.InnerHtml.AppendHtml(tag);
+                tag.InnerHtml.Append(i.ToString()); 
+                result.InnerHtml.AppendHtml(tag); // wkładamy znacznik a w znacznik div
             }
             output.Content.AppendHtml(result.InnerHtml);
         }

@@ -26,6 +26,8 @@ namespace Orgella
             services.AddTransient<IProductRepository, EFProductRepository>();// użycie rzeczywistego repozytorium. Komponenty aplikacji używające interfejsu IProductRepository, który w tym momencie jet po prostu kontrolerem Product, będą w chwili tworzenia otrzymywały obiekt EFProductRepository, zapewniający dostęp do informacji w bazie danych.
             services.AddTransient<IAdminRepository, EFAdminRepository>();
             services.AddMvc();
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,8 +36,13 @@ namespace Orgella
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvc(routes =>
             {
+                //routes.MapRoute(
+                //    name: null,
+                //    template: "{word}/Strona{productPage:int}",
+                //    defaults: new { controller = "Product", action = "Search"});
                 routes.MapRoute(
                     name: null,
                     template: "{category}/Strona{productPage:int}",
@@ -48,6 +55,10 @@ namespace Orgella
                     name: null,
                     template: "{category}",
                     defaults: new { controller = "Product", action = "List", productPage = 1 });
+                routes.MapRoute(
+                    name: null,
+                    template: "{word}",
+                    defaults: new { controller = "Product", action = "Search", productPage = 1 });
                 routes.MapRoute(
                     name: null,
                     template: "",

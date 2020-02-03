@@ -9,5 +9,6 @@ namespace Orgella.Models.ViewModels
     {
         public IEnumerable<Admin> Admins { get; set; }
         public PagingInfo PagingInfo { get; set; }
+        
     }
 }

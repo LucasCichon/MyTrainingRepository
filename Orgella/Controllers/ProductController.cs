@@ -29,10 +29,27 @@ namespace Orgella.Controllers
             {
                 CurentPage = productPage,
                 ItemsPerPage = PageSize,
-                TotalItems = repository.Products.Count()
+                TotalItems = category==null ? repository.Products.Count() :
+                repository.Products.Where(p => p.Category == category).Count()
             },
             CurrentCategory = category
 
+        });
+        public ViewResult Search(string category, string word="", int productPage = 1) => View("List",new ProductListViewModel()
+        {
+            Products = repository.Products
+            .Where(p => p.Name.ToLower().Contains(word.ToLower()) || p.Category.ToLower().Contains(word.ToLower()))
+            .OrderBy(p => p.Name)
+            .Skip((productPage - 1) * PageSize)
+            .Take(PageSize),
+            PagingInfo = new PagingInfo
+            {
+                CurentPage = productPage,
+                ItemsPerPage = PageSize,
+                TotalItems = repository.Products
+                    .Where(p => p.Name.ToLower().Contains(word.ToLower()) || p.Category.ToLower().Contains(word.ToLower())).Count()
+            },
+            CurrentCategory = category
         });
             
     }

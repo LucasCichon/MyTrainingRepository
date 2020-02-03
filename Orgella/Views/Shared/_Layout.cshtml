@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width" />
     <title>Orgella</title>
     <link rel="stylesheet" asp-href-include="lib/twitter-bootstrap/css/**/*.css" />
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/MyStyleSheet.css" />
 </head>
 <body>
     <div class="navbar bg-orange"  role="navigation">
         <a class="navbar-brand text-white" href="#"><h2>Orgella</h2></a>
+
+        <form method="get" asp-action="Search" class="form-group"> 
+
+            <input name="word"  id="word" class="floated"  />
+            <button class="btn btn-secondary floated " type="submit" asp-action="Search" >Search</button>
+           
+        </form>
     </div>
     <div class="row m-1 p-1">
         <div id="categories" class="col-3">
-            Później tutaj coś ogarniemy
+            @await Component.InvokeAsync("NavigationMenu")
         </div>
         <div class="col-9">
         @RenderBody()
