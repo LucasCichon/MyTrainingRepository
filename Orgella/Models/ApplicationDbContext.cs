@@ -14,5 +14,6 @@ namespace Orgella.Models
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> option) : base(option) { }
         public DbSet<Product> Products { get; set; } // właściwość Products zapewni dostęp do obiektów typu Product w bazie danych.
         public DbSet<Admin> Admins { get; set; }
+        
     }
 }

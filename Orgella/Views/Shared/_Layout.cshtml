@@ -10,11 +10,13 @@
 <body>
     <div class="navbar bg-orange"  role="navigation">
         <a class="navbar-brand text-white" href="#"><h2>Orgella</h2></a>
-
+        <div id="Navigation">
+            @await Component.InvokeAsync("Navigation")
+        </div>
         <form method="get" asp-action="Search" class="form-group"> 
 
-            <input name="word"  id="word" class="floated"  />
-            <button class="btn btn-secondary floated " type="submit" asp-action="Search" >Search</button>
+            <input name="word"  id="word" class="floated" style="margin-top:5px" />
+            <button class="btn text-white floated " type="submit" asp-action="Search" >Szukaj</button>
            
         </form>
     </div>
@@ -26,5 +28,6 @@
         @RenderBody()
         </div>
     </div>
+    
 </body>
 </html>

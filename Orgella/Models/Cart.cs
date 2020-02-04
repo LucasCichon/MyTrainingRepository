@@ -7,18 +7,16 @@ namespace Orgella.Models
 {
     public class Cart
     {
-        private List<CartLine> lineCollection = new List<CartLine>(); //lista obiektów CartLine
-
+        private List<CartLine> LineCollection = new List<CartLine>();
+        
         public virtual void AddItem(Product product, int quantity)
         {
-            //sprawdzamy czy lineCollection zawiera dany produkt przypisując jej obiekt z listy którego ID jest róne ID parametru metody
-            CartLine line = lineCollection
+            CartLine line = LineCollection
                 .Where(p => p.Product.ProductID == product.ProductID)
                 .FirstOrDefault();
-
             if(line == null)
             {
-                lineCollection.Add(new CartLine
+                LineCollection.Add(new CartLine
                 {
                     Product = product,
                     Quantity = quantity
@@ -31,14 +29,12 @@ namespace Orgella.Models
         }
         public virtual void RemoveLine(Product product)
         {
-            lineCollection.RemoveAll(l => l.Product.ProductID == product.ProductID);
+            LineCollection.RemoveAll(l => l.Product.ProductID == product.ProductID);
         }
-        public virtual decimal ComputeTotalValue()
-        {
-            return lineCollection.Sum(e => e.Quantity * e.Product.Price);
-        }
-        public virtual void Clear() => lineCollection.Clear();
-        public virtual IEnumerable<CartLine> Lines => lineCollection;
+        public virtual decimal ComputeTotalValue() => LineCollection.Sum(e => e.Product.Price * e.Quantity);
+        public virtual void Clear() => LineCollection.Clear();
+        public IEnumerable<CartLine> Lines => LineCollection;
+
     }
     public class CartLine
     {
@@ -46,4 +42,5 @@ namespace Orgella.Models
         public Product Product { get; set; }
         public int Quantity { get; set; }
     }
+        
 }

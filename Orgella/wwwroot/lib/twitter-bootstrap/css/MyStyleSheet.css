@@ -1,24 +1,34 @@
 ﻿.btn-orange {
     color: #fff;
-    background-color: #fd7e14 !important;
-    border-color: #FC601C;
+    background-color: #FC601C;
 }
 
-    .btn-orange:hover {
-        color: #fff;
-        background-color: #fd7e14 !important;
-        border-color: #FC601C;
-    }
+.btn-orange:hover {
+    color: #fff;
+    background-color: #FC601C 
+}
+
+.btn-orange:focus, .btn-orange.focus {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
 
 .bg-orange {
-    background-color: #FC601C !important;
+    background-color: #FC601C ;
 }
 
 .badge-orange {
     color: #fff;
-    background-color: #FC601C !important;
+    background-color: #FC601C;
 }
 .floated{
     float:left;
-   
+}
+
+.card-footer {
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(0, 0, 0, 0.98);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.98);
 }

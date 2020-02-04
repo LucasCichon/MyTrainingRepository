@@ -49,6 +49,10 @@ namespace Orgella
                     defaults: new { controller = "Product", action = "List"});
                 routes.MapRoute(
                     name: null,
+                    template: "Admin/List",
+                    defaults: new { controller = "Admin", action = "List" });
+                routes.MapRoute(
+                    name: null,
                     template: "Strona{productPage:int}",
                     defaults: new { controller = "Product", action = "List", productPage = 1 });
                 routes.MapRoute(
@@ -69,6 +73,7 @@ namespace Orgella
             });
         SeedData.EnsurePopulated(app);
         SeedAdminData.EnsurePopulate(app);
+        SeedDataPromotion.EnsurePopulate(app);
         }
     }
 }

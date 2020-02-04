@@ -1,0 +1,22 @@
+﻿@model ProductListViewModel
+
+@{ Layout = "_Layout";}
+
+
+<div page-model="@Model.PagingInfo" page-action="List" page-class-enabled="true"
+     page-class="btn " page-class-normal="btn-outline-secondary"
+     page-class-selected="btn-orange btn-outline-secondary text-white"
+     page-url-category="@Model.CurrentCategory" class="btn-group pull-right m-1 "></div>
+
+@foreach (var p in Model.Products)
+{
+    @Html.Partial("PromotionsSummary", p);
+}
+
+<div page-model="@Model.PagingInfo" page-action="List" page-class-enabled="true"
+     page-class="btn " page-class-normal="btn-outline-secondary"
+     page-class-selected="btn-orange btn-outline-secondary text-white"
+     page-url-category="@Model.CurrentCategory" class="btn-group pull-right m-1 "></div>
+
+
+@*page-url-category   To jest bardzo ważne - to używamy w atybucie pomocniczym znacznika PageLinkTagHelper*@
